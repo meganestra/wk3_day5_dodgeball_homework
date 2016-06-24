@@ -20,6 +20,11 @@ class Match
     return Match.map_item(sql, @runner)
   end
 
+  def self.delete(runner)
+    sql = "DELETE FROM matches"
+    runner.run(sql)
+  end
+
   def self.map_items(sql, runner)
     matches_data = runner.run(sql)
     result = matches_data.map { |match| Match.new(match, runner) }

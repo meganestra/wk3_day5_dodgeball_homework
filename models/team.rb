@@ -16,6 +16,11 @@ class Team
   return Team.map_item(sql, @runner)
   end
 
+  def self.delete(runner)
+    sql = "DELETE FROM teams"
+    runner.run(sql)
+  end
+
   def self.map_items(sql, runner)
     teams_data = runner.run(sql)
     result = teams_data.map { |team| Team.new(team, runner) }
