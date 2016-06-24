@@ -1,6 +1,7 @@
 require_relative('models/sql_runner')
 require_relative('models/team')
 require_relative('models/match')
+require_relative('models/player')
 require('pry-byebug')
 
 runner = SqlRunner.new({dbname: "dodgeball_league", host: "localhost"})
@@ -13,13 +14,15 @@ t1 = team1.save()
 team2 = Team.new({"name" => "Average Joes"}, runner)
 t2 = team2.save()
 
-t1.update_name("Greens")
+# t1.update_name("Greens")
 
 match1 = Match.new({"home_team_id" => t1.id, "away_team_id" => t2.id, "home_team_score" => 10, "away_team_score" => 20}, runner)
 m1 = match1.save()
 
-
-
+player1 = Player.new({"first_name" => "White", "last_name" => "Goodman", "team_id" => t1.id}, runner)
+p1 = player1.save()
+player2 = Player.new({"first_name" => "Pete", "last_name" => "LaFleur", "team_id" => t2.id}, runner)
+p2 = player2.save()
 
 
 binding.pry
