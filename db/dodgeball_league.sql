@@ -1,3 +1,4 @@
+DROP TABLE leagues;
 DROP TABLE matches;
 DROP TABLE players;
 DROP TABLE teams;
@@ -21,4 +22,13 @@ CREATE TABLE players (
   last_name VARCHAR(255) not null,
   team_id INT4 references teams(id)
 );
+
+CREATE TABLE leagues (
+  id SERIAL4 primary key,
+  name VARCHAR(255) not null,
+  match_id INT4 reference matches(id),
+);
+
+
+
 
