@@ -7,6 +7,7 @@ require('pry-byebug')
 runner = SqlRunner.new({dbname: "dodgeball_league", host: "localhost"})
 
 Match.delete(runner)
+Player.delete(runner)
 Team.delete(runner)
 
 team1 = Team.new({"name" => "Globo Gym"}, runner)

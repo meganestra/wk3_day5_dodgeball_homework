@@ -22,6 +22,12 @@ class Team
     @runner.run(sql)
   end
 
+  def self.all(runner)
+    sql = "SELECT * FROM teams"
+    result = Team.map_items(sql, runner)
+    return result
+  end
+
   def self.delete(runner)
     sql = "DELETE FROM teams"
     runner.run(sql)

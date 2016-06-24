@@ -20,6 +20,12 @@ class Match
     return Match.map_item(sql, @runner)
   end
 
+  def self.all(runner)
+    sql = "SELECT * FROM matches"
+    result = Match.map_items(sql, runner)
+    return result
+  end
+
   def self.delete(runner)
     sql = "DELETE FROM matches"
     runner.run(sql)

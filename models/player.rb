@@ -20,6 +20,17 @@ class Player
     return Player.map_item(sql, @runner)
   end
 
+  def self.all(runner)
+    sql = "SELECT * FROM players"
+    result = Player.map_items(sql, runner)
+    return result
+  end
+
+  def self.delete(runner)
+    sql = "DELETE FROM players"
+    runner.run(sql)
+  end
+
   def self.map_items(sql, runner)
     players_data = runner.run(sql)
     result = players_data.map { |player| Player.new(player, runner) }
