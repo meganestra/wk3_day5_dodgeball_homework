@@ -12,8 +12,14 @@ class Team
   end
 
   def save()
-  sql = "INSERT INTO teams (name) VALUES ('#{@name}') RETURNING *"
-  return Team.map_item(sql, @runner)
+    sql = "INSERT INTO teams (name) VALUES ('#{@name}') RETURNING *"
+    return Team.map_item(sql, @runner)
+  end
+
+  def update_name(name)
+    @name = name
+    sql = "UPDATE teams SET name = '#{@name}' WHERE id = #{@id}"
+    @runner.run(sql)
   end
 
   def self.delete(runner)
