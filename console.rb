@@ -28,7 +28,7 @@ p1 = player1.save()
 player2 = Player.new({"first_name" => "Pete", "last_name" => "LaFleur", "team_id" => t2.id}, runner)
 p2 = player2.save()
 
-league = League.new(runner)
+# league = League.new(runner)
 
 
 binding.pry
